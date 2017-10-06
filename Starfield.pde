@@ -2,7 +2,7 @@ Particle[] particles;
 void setup()
 {
   size(500, 500);
-  particles = new Particle[1000];
+  particles = new Particle[500];
   for (int i = 0; i<particles.length; i++) {
     particles[i] = new NormalParticle();
   }
@@ -20,9 +20,9 @@ int a, b, c, myX, myY;
 class NormalParticle implements Particle
 {
   NormalParticle() {
-    x = (int)(Math.random()*501);
-    y = (int)(Math.random()*501);
-    speed = Math.random()*5;
+    x = 200;
+    y = 200;
+    speed = Math.random()*0.3;
     angle = Math.PI*2*Math.random();
     a = (int)(Math.random()*256);
     b = (int)(Math.random()*256);
@@ -30,7 +30,7 @@ class NormalParticle implements Particle
   }
 
   public void show() {
-    for(int i=0; i<10; i++) {
+    for(int i=0; i<particles.length; i++) {
     fill(a, b, c);
     ellipse((float)x, (float)y, 15, 15);
   }
@@ -45,9 +45,10 @@ interface Particle
   public void show();
   public void move();
 }
-class OddballParticle //uses an interface
+//class OddballParticle implements Particle
 {
-  //your code here
+  //public void show() {
+  //  for(int i=0; 
 }
 class JumboParticle //uses inheritance
 {
